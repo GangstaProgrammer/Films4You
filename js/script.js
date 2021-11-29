@@ -21,4 +21,10 @@ $(function () {
     $(".tags").autocomplete({
         source: availableTags
     });
-})
+
+    document.querySelector('header .sign_in').addEventListener('click', evt => {
+        document.querySelector('header .sign_in_block').classList.toggle('active');
+        document.querySelector('header .sign_in').classList.toggle('active');
+    })
+});
+

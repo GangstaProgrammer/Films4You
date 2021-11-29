@@ -1,0 +1,75 @@
+main {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.flex_container {
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+
+.title {
+    width: 100%;
+    border-bottom: 1px solid #bdbdbd;
+    font-size: 28px;
+    padding-bottom: 20px;
+}
+
+.title h1 {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+form.register {
+    width: 40%;
+    font-size: 24px;
+    text-align: left;
+}
+
+.register span {
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.register input {
+    padding: 5px;
+    color: #000000;
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 22px;
+    border-radius: 3px;
+    background: #efefef;
+}
+
+.register button {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    font-size: inherit;
+    background: #67a3ea;
+    border-radius: 20px;
+    border: 2px solid #000;
+    padding: 3px 7px;
+}
+
+.register button:hover {
+    transform: translateY(-2px);
+    background: #52a4ef;
+}
+
+.opportunities {
+    width: 57%;
+    font-size: 24px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.opportunities a {
+    color: #67a3ea;
+    cursor: pointer;
+}
+
+.opportunities a:hover {
+    border-bottom: 1px solid #67a3ea;
+}

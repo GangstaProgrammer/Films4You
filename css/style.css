@@ -33,6 +33,11 @@ a:hover {
     color: #67a3ea;
 }
 
+p {
+    line-height: 40px;
+    letter-spacing: 1px;
+}
+
 /* ======================= HEADER & FOOTER ==================*/
 header, footer {
     background: #000000;
@@ -190,6 +195,63 @@ form.search_by_name {
     padding-right: 10px;
 }
 
+.sign_in_block {
+    display: none;
+    width: 300px;
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #444444
+}
+
+.sign_in_block form {
+    width: 100%;
+}
+
+.sign_in_block span {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.sign_in_block input {
+    width: 100%;
+    color: #000000;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #444444;
+}
+
+.sign_in_block button {
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 0;
+    background: #67a3ea;
+}
+
+header .sign_in.active {
+    color: #67a3ea;
+    text-decoration: 1px solid #67a3ea;
+}
+
+.active {
+    display: block;
+}
+
+.user_panel {
+    max-width: 250px;
+    text-align: right;
+}
+
+.user_panel a {
+    border-bottom: 1px solid #ffffff;
+}
+
+.user_panel a:hover {
+    border-bottom: 1px solid #67a3ea;
+}
 /* ==================== MAIN ======================*/
 hr {
     height: 2px;

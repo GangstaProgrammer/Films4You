@@ -20,31 +20,8 @@
 
 </head>
 <body>
-<div class="cover">
-    <header>
-        <div class="wrapper">
-            <div class="content">
-                <div class="logo">
-                    <a href="index.php">
-                        <span class="films">Films</span><span class="four">4</span><span class="you">You</span>
-                    </a>
-                </div>
-                <div class="menu_body">
-                    <form action="" class="search_by_name">
-                        <input type="text" placeholder="Пошук за назвою..." class="tags">
-                        <button type="submit"><img src="img/search_icon" alt=""></button>
-                    </form>
-                    <div class="advanced_search"><a href="search/search.php" title="Можливість обирати жанри, роки, рейтинг тощо">Розширений пошук</a></div>
-                    <div class="forms">
-                        <div class="sign_in"><a href="#"> Вхід </a></div>
-                        <div class="sign_up"><a href="#"> Реєстрація </a></div>
-                    </div>
-                </div>
-                <div class="menu_icon"><span></span></div>
-            </div>
-        </div>
-    </header>
-    <div class="wrapper">
+    <?php require_once('includes_php/header.php'); ?>
+
         <main>
             <div class="roundabout">
                 <div class="roundabout_title">
@@ -169,10 +146,6 @@
                 <hr>
             </div>
         </main>
-    </div>
-    <footer>
-        <div class="wrapper"> © 2021 Films4You</div>
-    </footer>
-</div>
+    <?php require_once('includes_php/footer.php'); ?>
 </body>
 </html>
