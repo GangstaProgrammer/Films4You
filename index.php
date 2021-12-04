@@ -1,5 +1,6 @@
 <?php
 require_once 'db/connection_db_films.php';
+$connect = new mysqli('localhost', 'root', '', 'films4you');
 
 $query = "SELECT f.poster, f.name, f.year, f.premiere FROM films f WHERE '" .
     date('Y-m-d') . "' > f.premiere + interval 31 day ORDER BY f.premiere DESC LIMIT 5;";
@@ -8,9 +9,10 @@ $novelties = mysqli_fetch_all($connect->query($query));
 $query = "SELECT f.poster, f.name, f.year, f.imdb_rating FROM films f ORDER BY f.imdb_rating DESC LIMIT 5;";
 $top_rating = mysqli_fetch_all($connect->query($query));
 
-$top_rating_log = fopen("top_rating_log.txt", 'a') or die("не удалось создать файл");
+$top_rating_log = fopen("top_rating_log.txt", 'a') or die("failed to create file");
 date_default_timezone_set('Europe/Kiev');
-$log_text = print_r(mysqli_fetch_all($connect->query("SELECT f.name, f.year, f.imdb_rating FROM films f ORDER BY f.imdb_rating DESC LIMIT 5;")), true);
+$log_text = print_r(mysqli_fetch_all($connect->query(
+        "SELECT f.name, f.year, f.imdb_rating FROM films f ORDER BY f.imdb_rating DESC LIMIT 5;")), true);
 fwrite($top_rating_log, date("Y-m-d H:i:s"). "\n" . $log_text . "\n\n");
 fclose($top_rating_log);
 
