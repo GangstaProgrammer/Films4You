@@ -8,7 +8,7 @@ if ($login == '' || $password == '') {
 }
 
 $password_hash = md5($password . 'salt');
-require_once 'includes_php/connection_mysql.php';
+require_once 'db/connection_db_users.php';
 $user = ($connect->query("SELECT name FROM users WHERE login = '$login' AND password_hash = '$password_hash'"));
 $user = mysqli_fetch_assoc($user);
 
@@ -18,5 +18,9 @@ if (count($user) == 0) {
 }
 
 setcookie('user', $user['name'], time() + 3600 * 24 * 30, '/');
+if ($login == 'admin')
+    setcookie('admin', 'yes', time() + 3600 * 24 * 30, '/');
+else
+    setcookie('admin', 'no', time() + 3600 * 24 * 30, '/');
 
 header('Location: /');

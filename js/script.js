@@ -26,5 +26,19 @@ $(function () {
         document.querySelector('header .sign_in_block').classList.toggle('active');
         document.querySelector('header .sign_in').classList.toggle('active');
     })
+
+    let advanced_search = document.querySelector('header .advanced_search a');
+    let nameOfIcon = '';
+    if (advanced_search.textContent.toLowerCase().replaceAll(' ', '') === 'розширенийпошук') {
+        nameOfIcon = 'ua_icon';
+    } else if (advanced_search.textContent.toLowerCase().replaceAll(' ', '') === 'расширенныйпоиск') {
+        nameOfIcon = 'ru_icon';
+    } else if (advanced_search.textContent.toLowerCase().replaceAll(' ', '') === 'advancedsearch') {
+        nameOfIcon = 'en_icon';
+    }
+
+    let langIcon = document.querySelector(`footer .language_icons .${nameOfIcon}`);
+    langIcon.classList.add('chosen_lang');
+
 });
 

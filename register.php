@@ -24,25 +24,22 @@ require_once('includes_php/header.php');
 ?>
 <main>
     <div class="title">
-        <h1>Реєстрація нового користувача</h1>
+        <h1><?= $lang->get('REGISTER_NEW_USER')?></h1>
     </div>
     <div class="flex_container">
-        <form action="creating/create_user.php" method="post" class="register">
-            <span>Уведіть ім'я:</span><br>
+        <form action="db/creating/create_user.php" method="post" class="register">
+            <span><?= $lang->get('ENTER_NAME')?>:</span><br>
             <input type="text" name="name"><br>
-            <span>Уведіть логін:</span><br>
+            <span><?= $lang->get('ENTER_LOGIN')?>:</span><br>
             <input type="text" name="login"><br>
-            <span>Уведіть пароль:</span><br>
+            <span><?= $lang->get('ENTER_PASSWORD')?>:</span><br>
             <input type="password" name="password"><br>
-            <span>Повторіть пароль:</span><br>
+            <span><?= $lang->get('REPEAT_PASSWORD')?>:</span><br>
             <input type="password" name="password2"><br>
-            <button type="submit">Зареєструватися</button>
+            <button type="submit"><?= $lang->get('TO_REGISTER')?></button>
         </form>
         <div class="opportunities">
-            <p>Вітаємо, шановний відвідувач нашого сайту!<br>
-                Реєстрація на нашому сайті дозволить Вам бути його повноцінним учасником.<br>
-                Зареєстровані користувачі можуть додавати коментарі до фільмів та додавати фільми до списку обраних.<br>
-                У разі виникнення проблем із реєстрацією зверніться до <a>адміністратора</a> сайту. </p>
+            <p><?= $lang->get('REGISTER_OPPORTUNITIES')?></p>
         </div>
     </div>
 </main>

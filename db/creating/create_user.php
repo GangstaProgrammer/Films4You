@@ -18,7 +18,13 @@ if (mb_strlen($login) < 5 || mb_strlen($login) > 50) {
     exit();
 }
 $password_hash = md5($password.'salt');
-require_once '../includes_php/connection_mysql.php';
+require_once '../connection_db_users.php';
 $connect->query("INSERT INTO users (name, login, password_hash) VALUES ('$name', '$login', '$password_hash')");
+
 setcookie('user', $user['name'], time() + 3600 * 24 * 30, '/');
+if ($login == 'admin')
+    setcookie('admin', 'yes', time() + 3600 * 24 * 30, '/');
+else
+    setcookie('admin', 'no', time() + 3600 * 24 * 30, '/');
+
 header('Location: /');

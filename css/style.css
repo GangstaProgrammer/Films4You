@@ -71,7 +71,7 @@ footer {
     align-items: center;
 }
 
-header .content {
+.content {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -246,11 +246,28 @@ header .sign_in.active {
 }
 
 .user_panel a {
-    border-bottom: 1px solid #ffffff;
+    text-decoration:  underline #ffffff;
 }
 
 .user_panel a:hover {
-    border-bottom: 1px solid #67a3ea;
+    text-decoration:  underline #67a3ea;
+}
+
+footer .language_icons a {
+    display: inline-block;
+}
+footer .language_icons img {
+    width: 40px;
+}
+
+.language_icons img:hover {
+    opacity: 0.6;
+}
+
+img.chosen_lang {
+    border: 1px solid #67a3ea;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #67a3ea inset;
 }
 /* ==================== MAIN ======================*/
 hr {
