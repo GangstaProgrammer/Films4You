@@ -13,6 +13,22 @@ $genres = mysqli_fetch_all($genres);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Жанри </title>
     <link rel="stylesheet" href="../css/db.css">
+    <script>
+        window.onload = () => {
+            document.querySelector('form').addEventListener('submit', evt => {
+                evt.preventDefault();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'creating/create_genre.php');
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send('name=' + document.querySelector('form input[name="name"]').value);
+                xhr.onreadystatechange = () => {
+                    if(xhr.readyState === 4 && xhr.status === 200) {
+                        document.querySelector('form input[name="name"]').value = '';
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 
@@ -33,7 +49,7 @@ $genres = mysqli_fetch_all($genres);
     ?>
 </table>
 <h2> Додати новий жанр </h2>
-<form action="creating/create_genre.php" method="post">
+<form action="" method="post">
     <h3> Назва </h3>
     <input type="text" name="name" placeholder="Бойовик"><br>
     <button type="submit"> Додати до бази даних </button>

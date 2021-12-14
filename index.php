@@ -1,6 +1,5 @@
 <?php
 require_once 'db/connection_db_films.php';
-$connect = new mysqli('localhost', 'root', '', 'films4you');
 
 $query = "SELECT f.poster, f.name, f.year, f.premiere FROM films f WHERE '" .
     date('Y-m-d') . "' > f.premiere + interval 31 day ORDER BY f.premiere DESC LIMIT 5;";
@@ -43,8 +42,7 @@ $now_playing = mysqli_fetch_all($connect->query($query));
 
 </head>
 <body>
-<?php require_once('includes_php/header.php');
-?>
+<?php require_once('includes_php/header.php'); ?>
 <main>
     <div class="roundabout">
         <div class="roundabout_title">

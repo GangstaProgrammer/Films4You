@@ -13,14 +13,31 @@ $directors = mysqli_fetch_all($directors);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Режисери </title>
     <link rel="stylesheet" href="../css/db.css">
+    <script>
+        window.onload = () => {
+            document.querySelector('form').addEventListener('submit', evt => {
+                evt.preventDefault();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'creating/create_director.php');
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send('first_name=' + document.querySelector('form input[name="first_name"]').value +
+                    '&last_name=' + document.querySelector('form input[name="last_name"]').value);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        document.querySelector('form input[name="first_name"]').value = '';
+                        document.querySelector('form input[name="last_name"]').value = '';
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-
 <table>
     <tr>
         <th> id</th>
-        <th> first_name </th>
-        <th> last_name </th>
+        <th> first_name</th>
+        <th> last_name</th>
     </tr>
     <?php
     foreach ($directors as $director) {
@@ -35,12 +52,12 @@ $directors = mysqli_fetch_all($directors);
     ?>
 </table>
 <h2> Додати нового режисера </h2>
-<form action="creating/create_director.php" method="post">
+<form action="" method="post">
     <h3> Ім'я </h3>
     <input type="text" name="first_name" placeholder="Вуді">
     <h3> Прізвище </h3>
     <input type="text" name="last_name" placeholder="Ален"><br>
-    <button type="submit"> Додати до бази даних </button>
+    <button type="submit"> Додати до бази даних</button>
 </form>
 <a href="db_main.php"> На головну </a>
 </body>

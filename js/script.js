@@ -8,19 +8,20 @@ $(function () {
     });
 
     $(document).tooltip();
-    let availableTags = [
-        "Апгрейд",
-        "Астро (2018)",
-        "Астрал (2010)",
-        "Астрал: Глава 2 (2013)",
-        "Астрал: Глава 3 (2015)",
-        "Астрал: Новий вимір (2018)",
-        "Астронавт Фармер (2006)",
-        "Астральне місто: Духовна подорож (2010)"
-    ];
-    $(".tags").autocomplete({
-        source: availableTags
+
+    let availableTags = [];
+    $.ajax({
+        url: 'db/get_film_names.php',
+        type: 'GET',
+        success: data => {
+            availableTags = Array.from(JSON.parse(data)).map(value => value[0]);
+            $(".tags").autocomplete({
+                source: availableTags
+            });
+        }
     });
+
+
 
     document.querySelector('header .sign_in').addEventListener('click', evt => {
         document.querySelector('header .sign_in_block').classList.toggle('active');

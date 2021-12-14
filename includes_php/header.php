@@ -11,8 +11,8 @@ require_once 'includes_php/set_lang.php';
                     </a>
                 </div>
                 <div class="menu_body">
-                    <form action="" class="search_by_name">
-                        <input type="text" placeholder="<?= $lang->get('SEARCH_BY_NAME')?>..." class="tags">
+                    <form action="search_by_name.php" class="search_by_name">
+                        <input type="text" placeholder="<?= $lang->get('SEARCH_BY_NAME')?>..." class="tags" name="keywords">
                         <button type="submit"><img src="../img/search_icon" alt=""></button>
                     </form>
                     <div class="advanced_search">
